@@ -9,7 +9,6 @@ while(cin>> spell ){
    for(int i=0; i<numbers.size(); ++i){
        if(numbers[i]==spell) cout << "Digit is " << i << "\n";
        else if(digits[i]==spell) cout << "Spelled out its " <<  numbers[i] << "\n";
-       else if(spell != numbers[i])cout <<  "You're typing bullshit\n";
    }
 }
 }
