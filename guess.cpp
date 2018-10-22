@@ -1,33 +1,29 @@
 #include "std_lib_facilities.h"
 
-bool smaller()
-{
-
-return true;
-}
-    
-
 int main()
 {
    char a;
-   int min = 1;
+   int min = 0;
    int max = 100;
-           cout << "Think of a number between " << min << " and " << max << ". Ready? Press \"r\" and enter.\n";
+   int guess = (max-min)/2;
+   cout << "Think of a number between " << min << " and " << max << ". Ready?\n\n";
+   while (guess>min){
+           cout << "Is it <= " << guess <<" (y/n)?\n";
            cin >> a; 
-           cout << "Is it <= " << max/2 <<" (y/n)?\n";
-
-   while (cin>>a){
-       if(min==max)
-           cout << "The number you thought of is " << min << "\n";
-       else if(a=='y'){
-           max=max/2;
-           cout << "Is it <= " << max/2 <<" (y/n)?\n";
+       if(a=='y'){
+           max=guess;
+           if(max-min==1) guess=min;
+           else guess-=(max-min)/2;
         }   
        else if(a=='n'){
-           min=max/2+min/2;
-           cout << "Is it <= " << (min+max)/2 <<" (y/n)?\n";
+           min=guess;
+           guess+=(max-min)/2;
         }
    } 
+           cout << "The number you thought of is " << max << "\n";
 
        
 }
+
+
+//high>low: problem with 100, 50
