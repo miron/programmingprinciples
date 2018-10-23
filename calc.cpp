@@ -1,23 +1,31 @@
 #include "std_lib_facilities.h"
+
+vector<string> numbers = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
+
+int get_number(){
+    int val;
+    if(cin>>val) return val;
+    cin.clear();
+    string s;
+    cin >> s;
+    for(int i=0; i<numbers.size(); ++i) if(numbers[i]==s) val=i;
+    return val;
+}
+
 int main()
+try
 {
     double val1, val2, result;
-    char operat;
+    char oper;
     string text;
-    vector<string> numbers = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
-    vector<string> digits = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+    while(true){
     cout << "Input value 1\n";
-    cin >> val1;
+    val1 = get_number();
     cout << "Input value 2\n";
-    cin >> val2;
-    cout << "Input operator\n";
-    cin >> operat;
-    for(int i=0; i<numbers.size(); ++i){
-       if(numbers[i]==val1) val1=i;
-       else if(digits[i]==val1) val1=numbers[i];
-    }
-  
-    switch(operat){
+    val2 = get_number();
+    cout << "Input operor\n";
+    cin >> oper;
+    switch(oper){
     case '+':
          text="The sum of "; 
          result = val1+val2;
@@ -34,7 +42,12 @@ int main()
          text="The quotient of "; 
          result = val1/val2;
          break;
+    default:
+         error("bad operator");
     }
     cout << text << val1 << " and " << val2 << " is " << result << "\n";
+    }
 }
+catch(runtime_error e){
+cout <<  e.what() << "\n";}
 
