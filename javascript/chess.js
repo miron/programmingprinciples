@@ -1,7 +1,4 @@
-tmp:
-first = " "
-second = "#"
-pattern = "";
+let tmp, first = " ", second = "#", pattern = "";
 size = 64;
 for (let n = 1; n <= size; n++) {
     if (n % 2 == 0) pattern+= second;
